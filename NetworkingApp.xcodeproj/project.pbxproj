@@ -64,7 +64,7 @@
 			children = (
 				B7109AD5277B24780095654D /* Apps */,
 				B7109AD6277B24820095654D /* Managers */,
-				B7109AD0277B0A510095654D /* User.swift */,
+				B7109AD9277B258E0095654D /* Models */,
 				B7109AD4277B24670095654D /* Controllers */,
 				B7109AD7277B248E0095654D /* Storyboards */,
 				B7109AD8277B24BB0095654D /* Resourses */,
@@ -114,6 +114,14 @@
 				B7109AC32779D7070095654D /* Assets.xcassets */,
 			);
 			path = Resourses;
+			sourceTree = "<group>";
+		};
+		B7109AD9277B258E0095654D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B7109AD0277B0A510095654D /* User.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

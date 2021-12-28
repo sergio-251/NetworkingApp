@@ -12,7 +12,7 @@ import Foundation
 class NetworkManager {
     static let shared = NetworkManager()
     
-    func fetchApi(from url: String?, with closure:  @escaping(User) -> Void) {
+    func fetchApi(from url: String?, with closure: @escaping(User) -> Void) {
         guard let url = URL(string: url ?? "") else { return }
         
         URLSession.shared.dataTask(with: url) { data, _, error in
@@ -25,7 +25,7 @@ class NetworkManager {
                     closure(user)
                 }
             } catch let error {
-                print("Error: \(error)")
+                print("Decode error: \(error)")
             }
         }.resume()
     
