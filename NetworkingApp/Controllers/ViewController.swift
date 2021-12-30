@@ -11,22 +11,19 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var userInfoLabel: UILabel!
     
-    override func viewDidLoad() {
-        fetch(from: Link.url)
-    }
-    
     private var user: User?
     
     @IBAction func getButtonPressed() {
-        userInfoLabel.text = user?.description
-    }
-    
-    
-    func fetch(from url: String) {
-        NetworkManager.shared.fetchApi(from: url) { user in
-            self.user = user
+        NetworkManager.shared.fetchData(Link.url) { result in
+            switch result {
+            case .success(let user):
+                self.user = user
+                self.userInfoLabel.text = user.description
+            case .failure(let error):
+                print(error)
+            }
         }
+       
     }
-
 }
 
