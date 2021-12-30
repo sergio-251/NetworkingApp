@@ -13,7 +13,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         fetch(from: Link.url)
-        print(Link.url)
     }
     
     private var user: User?

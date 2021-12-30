@@ -6,8 +6,14 @@
 //
 
 import Foundation
+im
 
 
+enum NetworkError: Error {
+    case invalidURL
+    case noData
+    case decodingError
+}
 
 class NetworkManager {
     static let shared = NetworkManager()
@@ -31,4 +37,23 @@ class NetworkManager {
     
     }
    
+}
+
+//MARL: - Methods
+extension NetworkManager {
+    func fetchData(_ url: String, completion: @escaping(Result<[User], NetworkError>) -> Void) {
+        AF.request(Link.exampleTwo.rawValue)
+            .validate()
+            .responseJSON { dataResponse in
+                switch dataResponse.result {
+                case .success(let value):
+                    let courses = Course.getCourses(from: value)
+                    DispatchQueue.main.async {
+                        completion(.success(courses))
+                    }
+                case .failure:
+                    completion(.failure(.decodingError))
+                }
+            }
+    }
 }
